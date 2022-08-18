@@ -24,31 +24,26 @@ namespace eTickets_Project.Data
                     {
                         new Location()
                         {
-                            LocationId = 1,
                             City = "Toronto",
                             Address = "Lakeshore Blvd."
                         },
                         new Location()
                         {
-                            LocationId = 2,
                             City = "Toronto",
                             Address = "Cherry Beach"
                         },
                         new Location()
                         {
-                            LocationId = 3,
                             City = "Hamilton",
                             Address = "Music Plaza"
                         },
                         new Location()
                         {
-                            LocationId = 4,
                             City = "Montreal",
                             Address = "Old Port"
                         },
                         new Location()
                         {
-                            LocationId = 5,
                             City = "Halifax",
                             Address = "Harbourfront Centre"
                         },
@@ -62,35 +57,30 @@ namespace eTickets_Project.Data
                     {
                         new Lineup()
                         {
-                            BandId = 1,
                             BandName = "Queen",
                             BandBio = "This is the Bio of Queen",
                             BandLogo = "/"
                         },
                         new Lineup()
                         {
-                            BandId = 2,
                             BandName = "Pink Floyd",
                             BandBio = "This is the Bio of Pink Floyd",
                             BandLogo = "/"
                         },
                         new Lineup()
                         {
-                            BandId = 3,
                             BandName = "Joe Bonamassa",
                             BandBio = "This is the Bio of Joe Bonamassa",
                             BandLogo = "/"
                         },
                         new Lineup()
                         {
-                            BandId = 4,
                             BandName = "Eric Clapton",
                             BandBio = "This is the Bio of Eric Clapton",
                             BandLogo = "/"
                         },
                         new Lineup()
                         {
-                            BandId = 5,
                             BandName = "Led Zeppelin",
                             BandBio = "This is the Bio of Led Zeppelin",
                             BandLogo = "/"

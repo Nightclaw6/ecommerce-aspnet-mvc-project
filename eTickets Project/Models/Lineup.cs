@@ -7,8 +7,12 @@ namespace eTickets_Project.Models
     {
         [Key]
         public int BandId { get; set; }
+
+        [Display(Name = "Band Logo")]
         public string BandLogo { get; set; }
+        [Display(Name = "Band Name")]
         public string BandName { get; set; }
+        [Display(Name = "Biography")]
         public string BandBio { get; set; }
 
         ///Relationships
