@@ -18,7 +18,7 @@ namespace eTickets_Project.Controllers
         public async Task<IActionResult> Index()
         {
             var allLocations = await _context.Locations.ToListAsync();
-            return View();
+            return View(allLocations);
         }
     }
 }

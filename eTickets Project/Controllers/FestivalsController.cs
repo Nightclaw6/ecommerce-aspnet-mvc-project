@@ -1,6 +1,7 @@
 ﻿using eTickets_Project.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace eTickets_Project.Controllers
@@ -16,8 +17,8 @@ namespace eTickets_Project.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allFestivals = await _context.Festivals.ToListAsync();
-            return View();
+            var allFestivals = await _context.Festivals.Include(n => n.Location).OrderBy(n => n.FestivalName).ToListAsync();
+            return View(allFestivals);
         }
     }
 }
