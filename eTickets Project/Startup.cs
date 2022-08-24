@@ -1,4 +1,5 @@
 using eTickets_Project.Data;
+using eTickets_Project.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,14 @@ namespace eTickets_Project
         {
             ///DBContext configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            ///Services configuration
+            services.AddScoped<ILineupsService, LineupsService>();
+
+
             services.AddControllersWithViews();
+            
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
