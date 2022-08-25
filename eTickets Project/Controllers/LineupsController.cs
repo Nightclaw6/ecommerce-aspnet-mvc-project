@@ -20,5 +20,11 @@ namespace eTickets_Project.Controllers
             var data = await _service.GetAll();    
             return View(data);
         }
+
+        ///Get: Lineups/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

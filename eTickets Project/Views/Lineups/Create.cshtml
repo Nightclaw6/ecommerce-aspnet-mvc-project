@@ -1,0 +1,53 @@
+﻿@model Lineup
+
+@{
+    ViewData["Title"] = "Add a new Lineup";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Add a new Lineup</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </form>
+                <div class="form-group text-center">
+                    <img id="BandLogoPreview"/>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="BandLogo" class="control-label"></label>
+                    <input asp-for="BandLogo" class="form-control" />
+                    <span asp-validation-for="BandLogo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BandName" class="control-label"></label>
+                    <input asp-for="BandName" class="form-control" />
+                    <span asp-validation-for="BandName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BandBio" class="control-label"></label>
+                    <input asp-for="BandBio" class="form-control" />
+                    <span asp-validation-for="BandBio" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                    <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $("BandLogo").on("change", function(){
+            var output = document.getElementById('BandLogoPreview');
+            output.src = $(this).val();
+        })
+    </script>
+}
