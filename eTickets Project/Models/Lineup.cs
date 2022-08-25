@@ -9,10 +9,16 @@ namespace eTickets_Project.Models
         public int BandId { get; set; }
 
         [Display(Name = "Band Logo")]
+        ///[Required(ErrorMessage = "Band logo is required")]
         public string BandLogo { get; set; }
+        
         [Display(Name = "Band Name")]
+        [Required(ErrorMessage = "Band name is required")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Band name must be between 3 and 50 chars")]
         public string BandName { get; set; }
+        
         [Display(Name = "Biography")]
+        [Required(ErrorMessage = "Band biography is required")]
         public string BandBio { get; set; }
 
         ///Relationships

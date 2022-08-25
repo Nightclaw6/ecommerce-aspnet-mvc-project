@@ -18,7 +18,8 @@ namespace eTickets_Project.Data.Services
 
         public void Add(Lineup lineup)
         {
-            throw new System.NotImplementedException();
+            _context.Lineups.Add(lineup);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)

@@ -1,5 +1,6 @@
 ﻿using eTickets_Project.Data;
 using eTickets_Project.Data.Services;
+using eTickets_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +26,17 @@ namespace eTickets_Project.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("BandName, BandLogo, BandBio")]Lineup lineup)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(lineup);
+            }
+            _service.Add(lineup);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
