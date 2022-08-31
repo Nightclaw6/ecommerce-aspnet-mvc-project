@@ -7,54 +7,48 @@
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add a new Lineup</h1>
+            <h1>Details for @Model.BandName</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
                     <div class="form-group text-center">
                         <img class="border-info rounded-circle" style="max-width: 150px" id="BandLogoPreview" />
                     </div>
 
                     <div class="form-group">
                         <label asp-for="BandLogo" class="control-label"></label>
-                        <input asp-for="BandLogo" class="form-control" />
+                        <input asp-for="BandLogo" class="form-control" readonly />
                         <span asp-validation-for="BandLogo" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="BandName" class="control-label"></label>
-                        <input asp-for="BandName" class="form-control" />
+                        <input asp-for="BandName" class="form-control" readonly />
                         <span asp-validation-for="BandName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="BandBio" class="control-label"></label>
-                        <input asp-for="BandBio" class="form-control" />
+                        <input asp-for="BandBio" class="form-control" readonly />
                         <span asp-validation-for="BandBio" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.BandId">Edit</a>
                         <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
                     </div>
-                </form>
-             </div>
+                
+            </div>
         </div>
     </div>
 </div>
 
 @section Scripts {
     <script>
-        
-        $(document).ready(function() {
+
+        $(document).ready(function () {
             var output = document.getElementById('BandLogoPreview');
             output.src = $("#BandLogo").val();
         })
-        
-        
-        $("#BandLogo").on("change", function(){
-            var output = document.getElementById('BandLogoPreview');
-            output.src = $(this).val();
-        })
+                        
     </script>
 }

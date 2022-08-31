@@ -6,13 +6,13 @@ namespace eTickets_Project.Data.Services
 {
     public interface ILineupsService
     {
-        Task<IEnumerable<Lineup>> GetAll();
+        Task<IEnumerable<Lineup>> GetAllAsync();
 
-        Lineup GetById(int id);   
+        Task<Lineup> GetByIdAsync(int id);   
 
-        void Add(Lineup lineup);
+        Task AddAsync(Lineup lineup);
 
-        Lineup Update(int id, Lineup newLineup);
+        Task<Lineup> UpdateAsync(int id, Lineup newLineup);
 
         void Delete(int id);
     }

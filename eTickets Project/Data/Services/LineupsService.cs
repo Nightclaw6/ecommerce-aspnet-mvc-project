@@ -16,10 +16,10 @@ namespace eTickets_Project.Data.Services
         }
 
 
-        public void Add(Lineup lineup)
+        public async Task AddAsync(Lineup lineup)
         {
-            _context.Lineups.Add(lineup);
-            _context.SaveChanges();
+            await _context.Lineups.AddAsync(lineup);
+            await _context.SaveChangesAsync();
         }
 
         public void Delete(int id)
@@ -27,20 +27,23 @@ namespace eTickets_Project.Data.Services
             throw new System.NotImplementedException();
         }
 
-        public async Task<IEnumerable<Lineup>> GetAll()
+        public async Task<IEnumerable<Lineup>> GetAllAsync()
         {
             var result = await _context.Lineups.ToListAsync();
             return result;  
         }
 
-        public Lineup GetById(int id)
+        public async Task<Lineup> GetByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var result = await _context.Lineups.FirstOrDefaultAsync(n => n.BandId == id);
+            return result;
         }
 
-        public Lineup Update(int id, Lineup newLineup)
+        public async Task<Lineup> UpdateAsync(int id, Lineup newLineup)
         {
-            throw new System.NotImplementedException();
+            _context.Update(newLineup);
+            await _context.SaveChangesAsync();
+            return newLineup;
         }
     }
 }

@@ -1,17 +1,17 @@
 ﻿@model Lineup
 
 @{
-    ViewData["Title"] = "Add a new Lineup";
+    ViewData["Title"] = "Update Lineup";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add a new Lineup</h1>
+            <h1>Update Lineup</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Create">
+                <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group text-center">
                         <img class="border-info rounded-circle" style="max-width: 150px" id="BandLogoPreview" />
@@ -34,25 +34,25 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                        <input type="submit" value="Update" class="btn btn-outline-success float-right" />
                         <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
                     </div>
                 </form>
-             </div>
+            </div>
         </div>
     </div>
 </div>
 
 @section Scripts {
     <script>
-        
-        $(document).ready(function() {
+
+        $(document).ready(function () {
             var output = document.getElementById('BandLogoPreview');
             output.src = $("#BandLogo").val();
         })
-        
-        
-        $("#BandLogo").on("change", function(){
+
+
+        $("#BandLogo").on("change", function () {
             var output = document.getElementById('BandLogoPreview');
             output.src = $(this).val();
         })

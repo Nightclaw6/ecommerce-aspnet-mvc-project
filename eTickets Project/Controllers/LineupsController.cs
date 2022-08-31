@@ -18,7 +18,7 @@ namespace eTickets_Project.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAll();    
+            var data = await _service.GetAllAsync();    
             return View(data);
         }
 
@@ -35,8 +35,38 @@ namespace eTickets_Project.Controllers
             {
                 return View(lineup);
             }
-            _service.Add(lineup);
+            await _service.AddAsync(lineup);
             return RedirectToAction(nameof(Index));
         }
+
+        ///Get: Lineups/Details/1
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var lineupsDetails = await _service.GetByIdAsync(id);
+            if (lineupsDetails == null) return View("NotFound");
+            return View(lineupsDetails);
+        }
+
+
+        ///Get: Lineups/Create
+        public async Task<IActionResult> Edit(int id)
+        {
+            var lineupsDetails = await _service.GetByIdAsync(id);
+            if (lineupsDetails == null) return View("NotFound");
+            return View(lineupsDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("BandId, BandName, BandLogo, BandBio")] Lineup lineup)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(lineup);
+            }
+            await _service.UpdateAsync(id, lineup);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
