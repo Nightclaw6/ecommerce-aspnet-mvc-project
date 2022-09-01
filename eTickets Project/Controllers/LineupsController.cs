@@ -49,7 +49,7 @@ namespace eTickets_Project.Controllers
         }
 
 
-        ///Get: Lineups/Create
+        ///Get: Lineups/Edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var lineupsDetails = await _service.GetByIdAsync(id);
@@ -65,6 +65,25 @@ namespace eTickets_Project.Controllers
                 return View(lineup);
             }
             await _service.UpdateAsync(id, lineup);
+            return RedirectToAction(nameof(Index));
+        }
+
+        ///Get: Lineups/Delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var lineupsDetails = await _service.GetByIdAsync(id);
+            if (lineupsDetails == null) return View("NotFound");
+            return View(lineupsDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var lineupsDetails = await _service.GetByIdAsync(id);
+            if (lineupsDetails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            
             return RedirectToAction(nameof(Index));
         }
 

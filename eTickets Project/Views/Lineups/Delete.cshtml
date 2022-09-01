@@ -1,0 +1,57 @@
+﻿@model Lineup
+
+@{
+    ViewData["Title"] = "Delete band";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Delete Confirmation for @Model.BandName</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                
+                    <div class="form-group text-center">
+                        <img class="border-info rounded-circle" style="max-width: 150px" id="BandLogoPreview" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="BandLogo" class="control-label"></label>
+                        <input asp-for="BandLogo" class="form-control" readonly />
+                        <span asp-validation-for="BandLogo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BandName" class="control-label"></label>
+                        <input asp-for="BandName" class="form-control" readonly />
+                        <span asp-validation-for="BandName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BandBio" class="control-label"></label>
+                        <input asp-for="BandBio" class="form-control" readonly />
+                        <span asp-validation-for="BandBio" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="BandId"/>
+                            <input type="submit" value="Confirm" class="btn btn-danger float-right"/>
+                        </form>
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+            var output = document.getElementById('BandLogoPreview');
+            output.src = $("#BandLogo").val();
+        })
+                        
+    </script>
+}

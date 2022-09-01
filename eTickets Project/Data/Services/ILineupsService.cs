@@ -14,6 +14,6 @@ namespace eTickets_Project.Data.Services
 
         Task<Lineup> UpdateAsync(int id, Lineup newLineup);
 
-        void Delete(int id);
+        Task DeleteAsync(int id);
     }
 }

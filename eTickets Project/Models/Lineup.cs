@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using eTickets_Project.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace eTickets_Project.Models
 {
-    public class Lineup
+    public class Lineup:IEntityBase
     {
         [Key]
         public int BandId { get; set; }
